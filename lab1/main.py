@@ -64,7 +64,7 @@ def function(t):
         raise Exception("Unknown Signal")
 
 
-def visualize(n):
+def visualize():
     if not os.path.exists(f'./temp/{signal_name}'):
         os.makedirs(f'./temp/{signal_name}')
 
@@ -120,10 +120,13 @@ def visualize(n):
     images = []
     for i in range(frames):
         images.append(imageio.imread(os.path.join("./temp/", signal_name, "{}.png".format(i))))
-    imageio.mimsave('{}_{}.mp4'.format(signal_name, n), images)
+
+    if not os.path.exists(f'./results'):
+        os.makedirs(f'./results')
+    imageio.mimsave('./results/{}_{}.mp4'.format(signal_name, N_Fourier), images)
 
 
 if __name__ == "__main__":
     for signal_name in signal_names:
         for N_Fourier in N_Fouriers:
-            visualize(N_Fourier)
+            visualize()
