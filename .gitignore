@@ -1,5 +1,7 @@
 .idea/
-data/
-__pycache__/
-archive/
-backup/
+
+# PDF Files
+*.pdf
+
+# Lab 1
+lab1/temp
