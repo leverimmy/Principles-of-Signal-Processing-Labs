@@ -1,7 +1,5 @@
 .idea/
 
-# PDF Files
-*.pdf
-
 # Lab 1
 lab1/temp
+lab1/report1.pdf
