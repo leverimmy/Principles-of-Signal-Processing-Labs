@@ -23,6 +23,14 @@ r_f = 22
 N = 17
 
 
+# 回绕函数
+def revolve(x, n):
+    y = np.zeros(n)
+    for i, v in enumerate(x):
+        y[i % n] += v
+    return y
+
+
 # TODO: 补全这部分代码
 # 构建低通滤波器
 # 函数需要返回滤波后的信号
@@ -37,7 +45,7 @@ def filter_fir(input_signal):
         return 0.5 + 0.5 * np.cos(2 * np.pi * n / (N - 1))
 
     h_prime = [h(n - 8) * w(n - 8) for n in range(N)]
-    return np.convolve(h_prime, input_signal, mode='full')[:t * f_s]
+    return revolve(np.convolve(h_prime, input_signal, mode='full'), t * f_s)
 
 
 # TODO: 首先正向对信号滤波(此时输出信号有一定相移)
