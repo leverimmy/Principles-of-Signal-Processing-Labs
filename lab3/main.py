@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.signal import firwin, lfilter
 
 # 时长为 1s
 t = 1
